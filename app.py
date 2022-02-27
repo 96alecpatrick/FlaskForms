@@ -17,3 +17,18 @@ class LoginForm(FlaskForm):
     remember = BooleanField("Remember")
     submit = SubmitField("Login")
     
+    
+class NewPost(FlaskForm):
+    title = StringField("Title", validators =[DataRequired(), Length(min=5, max =22)])
+    image = FileField("Image", validators=[FileAllowed(['jpg', 'png'], 'Images only!')])
+    content =TextAreaField("Content", validators =[DataRequired()])
+    submit =SubmitField("Submit")
+    
+class ContactForm(FlaskForm):
+    name = StringField("Name")
+    email = StringField("Email")
+    subject = StringField("Subject")
+    message = TextAreaField("Message")
+    submit = SubmitField("Send")
+    
+    
